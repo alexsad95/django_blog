@@ -1,0 +1,138 @@
+* {
+    font-family: Lato;
+}
+
+a {
+    color: #b57614;
+}
+
+a:hover {
+    color: #d79921;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#tags a:hover {
+    text-decoration: none;
+}
+
+.admin-panel {
+    border: 1px solid #999;
+    background: white;
+    border-radius: 2px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0.2;
+}
+
+.admin-panel:hover {
+    opacity: 2;
+}
+
+.admin-panel  a, #dropdownMenu1{
+    display: block;
+    
+}
+
+#button-item {
+    margin: 5px 10px;
+    width: 140px;
+}
+
+.pagination-panel {
+    margin: 100px 100px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+#article_block {
+    margin: 60px 0px;
+}
+
+#article_block>div {
+    margin-right: auto; 
+    margin-left: auto; 
+}
+
+.btn-soft-dark {
+    color: #fff;
+    background-color: #494949;
+}
+
+.btn-soft-dark:hover {
+    color: #fff;
+}
+
+.soft-dark-color {
+    background-color: #494949 !important;
+}
+
+ul.tags-li {
+    margin: 10px 0px; 
+    padding: 0px 0px; 
+}
+
+ul.tags-li li {
+    color: #494949;
+    display: inline-block;
+    margin-top: 5px; 
+    margin-right: 5px; 
+    border-radius: 2px;
+    padding: 0px 5px;
+} 
+
+.django-ckeditor-widget {
+    width: 100%;
+}
+
+#cke_id_body {
+    width: 100% !important;
+}
+
+#tags {
+    margin-top: 20px;
+    margin-right: auto; 
+    margin-left: auto; 
+    background-color: #eee;
+    border-radius: .25em;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+#container__detail { 
+    width:60%; 
+    margin-top:120px;
+}
+
+.img-fluid {
+    min-width: 100%; 
+    height: auto;
+}
+.navbar {
+    background-color: #eee;
+}
+
+strong#tag  {
+    color: #b57614;
+}
+
+.view { 
+    border-radius: .25em;
+}
+
+#container_edit {
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    border-radius: .25em;
+    background-color: #eee;
+    margin-top: 100px;
+}
+#container_edit form {
+    margin: 20px 0px;
+}
+
+h4.card-title {
+    color: black;
+}

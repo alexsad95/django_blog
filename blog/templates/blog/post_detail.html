@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ post.title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <!--Main layout-->
+    <main>
+
+        <div class="container-fluid" id="container__detail">
+  
+          <!--Card-->
+          <div class="card card-cascade wider reverse my-4 pb-5">
+            {% if post.article_image %}
+            <!--Card image-->
+            <div class="view view-cascade overlay wow fadeIn">
+              <img src="{{ post.article_image.url }}" class="img-fluid">
+            </div>
+            {% endif %}
+            <!--/Card image-->
+  
+            <!--Card content-->
+            <div class="card-body card-body-cascade text-center wow fadeIn" data-wow-delay="0.2s">
+              <!--Title-->
+              <h2 class="card-title"><strong>{{ post.title }}</strong></h2>
+              <h6>
+                <strong>{{ post.date_pub }}</strong> <br>
+                
+                {% for tag in post.tags.all %}
+                <a href="../../?tag={{ tag.slug }}">
+                    {{ tag.title }}
+                </a>    
+                {% endfor %}
+              </h6>
+  
+              <div class="body text-left">
+                {{ post.body|safe }}
+              </div>
+            </div>
+            <!--/.Card content-->
+  
+          </div>
+          <!--/.Card-->
+  
+        </div>
+  
+      </main>
+      <!--/Main layout-->
+
+{% endblock %}

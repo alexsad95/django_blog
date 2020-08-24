@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Post Create - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-10 mb-1 col-md-offset-3" id="container_edit">
+
+    <form action="{% url 'post_create_url' %}" method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {% for field in form %}
+            <div class="from-group">
+                {% if field.errors %}
+                <div class="alert alert-danger">
+                    {{ field.errors }}
+                </div>
+                {% endif %}
+
+                {{ field.label }}
+                {{ field }}
+            </div>
+
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-soft-dark">Create post</button>
+    </form>
+    </div>
+    </div> 
+</div> 
+{% endblock %}
