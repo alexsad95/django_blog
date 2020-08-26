@@ -32,7 +32,7 @@ class PostForm(forms.ModelForm):
 
     def clean_slug(self):
         new_slug = self.cleaned_data['slug'].lower()
-        # пример валидации
+        # validation example
         if new_slug == 'create':
             raise ValidationError('Slug may not be "Create"')
         return new_slug
@@ -42,16 +42,11 @@ class PostForm(forms.ModelForm):
         blog_post.title = self.cleaned_data['title']
         blog_post.body = self.cleaned_data['body']
         tags = self.cleaned_data['tags']
-        blog_post.tags.set(tags)
-
-        # if self.cleaned_data['article_image']:
-        #     blog_post.article_image = self.cleaned_data['article_image']
-        print('Image: ', self.cleaned_data['article_image'])
-        print('self: ', dir(self))
-        print('files: ', self.data['article_image'])
 
         if commit:
             blog_post.save()
+
+        blog_post.tags.set(tags)
 
         return blog_post
 

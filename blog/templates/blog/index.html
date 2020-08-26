@@ -22,6 +22,12 @@
     </div>
 </div>
 
+{% if page_object.object_list|length == 0 %}
+<div class="row"  >
+    <h3 id="text-on-center">No have post</h3>
+</div> 
+{% endif %}
+
 <!-- Panel with all posts -->
 <div class="row" id="article_block">
     {% for post in page_object.object_list %}

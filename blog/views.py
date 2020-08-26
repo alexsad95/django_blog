@@ -9,16 +9,16 @@ from .forms import TagForm, PostForm
 from .utils import *
 
 
-# главная страница, вывод всех постов и тегов, а также поиск
+# home page, output all posts and tags, also search
 def post_list(request):
-    # обработка запросов с параметром для поиска и вывода тегов
+    # processing requests with parameter for searching and displaying tags
     search_query = request.GET.get('search', '')
     tag_query = request.GET.get('tag', '')
 
-    # строка с парамметром запроса
+    # string with parameter request
     string_url = None
 
-    # запрос на данные по постам, в зависимости от парамметров GET 
+    # request for posts data, depending on the GET parameters
     if search_query:
         posts = Post.objects.filter(
             Q(title__icontains=search_query) | Q(body__icontains=search_query)
@@ -32,13 +32,13 @@ def post_list(request):
 
     tags = Tag.objects.all()
 
-    # создаём обекты для пагинации 
+    # creating objects for pagination
     paginator = Paginator(posts, 10)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
     is_paginated = page.has_other_pages()
 
-    # обработка ссылок для пагинации 
+    # processing links for pagination
     if page.has_previous():
         if string_url:
             prev_url = string_url + '&page={}'.format(page.previous_page_number())
@@ -61,12 +61,12 @@ def post_list(request):
         'prev_url': prev_url,
         'next_url': next_url,
         'tags': tags,
-        'string_url': string_url+'&page=' if string_url else None, # для обработки пагинации, если поиск или теги
+        'string_url': string_url+'&page=' if string_url else None, # for handle pagination when searching or tags
     }
     return render(request, 'blog/index.html', context=context)
 
 
-# ------манипуляции с постами------------
+# ------manipulations with posts------------
 class PostDetail(ObjectDetailMixin, View):
     model = Post
     template = 'blog/post_detail.html'
@@ -92,7 +92,7 @@ class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     raise_exception = True
 
 
-# ------манипуляции с тегами------------
+# ------manipulations with tags------------
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     model_form = TagForm
     template = 'blog/tag_create.html'
