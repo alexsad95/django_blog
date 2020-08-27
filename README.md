@@ -15,7 +15,7 @@ $ source /venv/bin/activate
 (venv) $ pip install -r requierments.txt
 (venv) $ ./manage.py runserver 5000
 ```
-After that open the browser in address http://localhost:5000.
+After that open the browser in address http://localhost:5000. Also you can login as admin (login: admin, password: admin) for manipulation with posts and tags.
 
 How works blog:
 
